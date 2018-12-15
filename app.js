@@ -1,33 +1,23 @@
 var express = require("express");
+var path = require("path");
 
 var app = express();
-var PORT = 3000;
-
-// Data
-// ===========================================================
-
-// Create one more data entry for the character Obi Wan Kenobi.
-// Enter any values you like for the parameters following the same format as the Yoda and Darth Maul character
-//
+var PORT = 7000;
 
 
-// var clementine = {
-//   name: "Clementine",
-//   role: "Zombie killer",
-//   age: 20,
-//   forcePoints: 9999
-// };
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
+});
 
-// // Routes
-// // ===========================================================
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "./public/makeReservation.html"));
+});
 
-// // YOUR CODE GOES HERE
-// app.get("/clementine", function(req, res){
-//   res.json(clementine);
-// })
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "./public/viewTables.html"));
+});
 
-// Listener
-// ===========================================================
+
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
