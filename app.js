@@ -1,62 +1,15 @@
 var express = require("express");
+var path = require("path");
 
 var app = express();
-var PORT = 3000;
+var PORT = 7000;
 
-// Data
-// ===========================================================
-// var yoda = {
-//   name: "Yoda",
-//   role: "Jedi Master",
-//   age: 900,
-//   forcePoints: 2000
-// };
 
-// var darthmaul = {
-//   name: "Darth Maul",
-//   role: "Sith Lord",
-//   age: 200,
-//   forcePoints: 1200
-// };
+app.get("/", function(req, res) {
+  res.send("Welcome to Home Route");
+});
 
-// Create one more data entry for the character Obi Wan Kenobi.
-// Enter any values you like for the parameters following the same format as the Yoda and Darth Maul character
-//
 
-// YOUR CODE GOES HERE
-
-// var clementine = {
-//   name: "Clementine",
-//   role: "Zombie killer",
-//   age: 20,
-//   forcePoints: 9999
-// };
-
-// // Routes
-// // ===========================================================
-// app.get("/", function(req, res) {
-//   res.send("Welcome to the Star Wars Page!");
-// });
-
-// app.get("/yoda", function(req, res) {
-//   res.json(yoda);
-// });
-
-// app.get("/darthmaul", function(req, res) {
-//   res.json(darthmaul);
-// });
-
-// // Create a new Express route that leads users to the new Obi Wan Kenobi Data
-// // Follow the same format as the Yoda and Darth Maul routes
-// //
-
-// // YOUR CODE GOES HERE
-// app.get("/clementine", function(req, res){
-//   res.json(clementine);
-// })
-
-// Listener
-// ===========================================================
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
