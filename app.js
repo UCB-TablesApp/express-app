@@ -4,6 +4,8 @@ var path = require("path");
 var app = express();
 var PORT = 7000;
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //array to store waitlist
 
@@ -27,7 +29,23 @@ app.listen(PORT, function() {
 
 //Display all Reservations
 
-app.post("/api/reservation", function(req, res) {
-  // return res.json(newReservation.name);
-  console.log(req.body);
+app.post("/api/reservation", (req, res) => {
+
+  var reservation = req.body;
+  console.log(reservation);
+  res.json(reservation);
+
+});
+
+// Create New Characters - takes in JSON input
+app.post("/api/characters", function(req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    var newcharacter = req.body;
+
+    console.log(newcharacter);
+
+    characters.push(newcharacter);
+
+    res.json(newcharacter);
 });
