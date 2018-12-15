@@ -86,8 +86,8 @@
             id: $("#reserve-unique-id").val().trim()
           };
     
-          // Question: What does this code do??
-          $.post("/api/characters", newReservation)
+          // Taking form information and adding it into an api as an object called
+          $.post("/api/reservation", newReservation)
             .then(function(data) {
               console.log("makeReservation.html", data);
               alert("Reservation Added");
