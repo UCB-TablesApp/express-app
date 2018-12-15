@@ -6,7 +6,7 @@ var PORT = 7000;
 
 
 app.get("/", function(req, res) {
-  res.send("Welcome to Home Route");
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 
