@@ -57,7 +57,7 @@
                   <label for="reserve-unique-id">Unique ID</label>
                   <input type="text" class="form-control" id="reserve-unique-id">
                 </div>
-                <button type="submit" class="btn btn-primary submit">Submit</button>
+                <button type="submit" class="btn btn-primary submit" id="reserve-btn">Submit</button>
               </form>
             </div>
           </div>
@@ -75,8 +75,25 @@
   
     </div>
   
-  
-  
+    <script type="text/javascript">
+        // Question: What does this code do?
+        $("#reserve-btn").on("click", function(event) {
+          event.preventDefault();
+          var newReservation = {
+            name: $("#reserve-name").val().trim(),
+            phone: $("#reserve-phone").val().trim(),
+            email: $("#reserve-email").val().trim(),
+            id: $("#reserve-unique-id").val().trim()
+          };
+    
+          // Question: What does this code do??
+          $.post("/api/characters", newReservation)
+            .then(function(data) {
+              console.log("makeReservation.html", data);
+              alert("Reservation Added");
+            });
+        });
+      </script>
   
   
   <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER
